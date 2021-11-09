@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="TechfairsSmtpSender.View.SearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:view="clr-namespace:TechfairsSmtpSender.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d">
+
+    <WrapPanel>
+        <ComboBox
+            Margin="10,0,10,0"
+            x:Name="SearchComboBox"
+            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+            IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
+            materialDesign:HintAssist.Hint="Some item"
+            SelectedIndex="0"
+            Width="120" />
+
+        <Grid>
+            <TextBox
+                HorizontalAlignment="Left"
+                Margin="10,0,10,0"
+                x:Name="SearchTextBox"
+                Style="{StaticResource MaterialDesignFilledTextBox}"
+                Width="200">
+            </TextBox>
+
+            <view:PickDateView
+                Visibility="Hidden"
+                x:Name="SearchPickDateView"/>
+        </Grid>
+
+        <!--Send All Button-->
+        <Button
+            x:Name="SendAllButton"
+            Margin="10,0,10,0"
+            Content="Send All">
+        </Button>
+
+        <!--Data Load-->
+        <Button
+            Click="LoadButton_Clicked"
+            Content="Load">
+        </Button>
+
+
+        <Button
+            Margin="797,0,0,0"
+            HorizontalAlignment="Right"
+            Click="CheckLogDBButton_Clicked"
+            Content="CheckDB">
+        </Button>
+
+    </WrapPanel>
+</UserControl>
